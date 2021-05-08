@@ -87,6 +87,7 @@ export default {
     transition: all .2s linear;
     transform: scaleY(1);
     transform-origin: center top;
+    z-index: 999;
     .white-border-wrap {
       border: solid 1px #ffffff;
       text-align: center;
