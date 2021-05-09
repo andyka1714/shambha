@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-    <Header></Header>
-    <div class="main-img-block" :style="{ backgroundImage: `url(${require('@/assets/pci.png')})`}">
+  <div ref="container" class="container" @scroll="handleScroll">
+    <Header @scrollToItem="scrollToItem"></Header>
+    <div ref="main" class="main-img-block" :style="{ backgroundImage: `url(${require('@/assets/pci.png')})`}">
       <div class="slogan-wrap">
         <div class="slogan-block">
           <p class="slogan">
@@ -10,9 +10,9 @@
           </p>
         </div>
       </div>
-      <img class="arrow-down" :src="require('@/assets/arrow-down.svg')" alt="arrow-down">
+      <img @click="scrollToItem('why')" class="arrow-down" :src="require('@/assets/arrow-down.svg')" alt="arrow-down">
     </div>
-    <div class="why-wrap">
+    <div ref="why" class="why-wrap">
       <div class="why-block">
         <div class="content-block">
           <p class="content-title">為什麼選用牛角呢</p>
@@ -23,7 +23,7 @@
         </div>
         <img class="main-img" :src="require('@/assets/main-img.png')" alt="main-img">
       </div>
-      <div class="why-block bg-pink margin-why-block">
+      <div ref="different" class="why-block bg-pink margin-why-block">
         <div class="content-block padding-content">
           <p class="content-title">我們哪裡不一樣</p>
           <p class="content">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="fill-title-wrap">
+    <div ref="products" class="fill-title-wrap">
       <div class="fill-title-block">
         <h2 class="title">- 熱銷商品 -</h2>
       </div>
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div class="fill-title-wrap">
+    <div ref="instruction" class="fill-title-wrap">
       <div class="fill-title-block">
         <h2 class="title">- 使用方法 -</h2>
       </div>
@@ -82,6 +82,7 @@
     </div>
     <div class="white-block"></div>
     <Footer class="bg-pink"></Footer>
+    <img v-if="scrollTop > 300" class="back-to-top-icon" @click="backToTop" :src="require('@/assets/back-to-top.svg')" alt="back-to-top">
   </div>
 </template>
 
@@ -96,6 +97,7 @@ export default {
   },
   data() {
     return {
+      scrollTop: 0,
       productList: [
         {
           title: '天然牛角按摩髮梳',
@@ -163,6 +165,26 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    backToTop() {
+      this.$refs.container.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    },
+    scrollToItem(item) {
+      let ItemOffsetTop = this.$refs[item].offsetTop
+      this.$refs.container.scrollTo({
+        top: ItemOffsetTop,
+        left: 0,
+        behavior: 'smooth'
+      })
+    },
+    handleScroll () {
+      this.scrollTop = this.$refs.container.scrollTop
+    }
   }
 }
 </script>
@@ -176,6 +198,8 @@ export default {
 }
 .container {
   background-color: #f5f5f5;
+  height: 100vh;
+  overflow-y: auto;
 }
 .main-img-block {
   height: 850px;
@@ -733,5 +757,19 @@ export default {
 }
 .white-block {
   height: 110px;
+}
+.back-to-top-icon {
+  position: fixed;
+  bottom: 300px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  @media screen and (max-width: 450px){
+    width: 36px;
+    height: 36px;
+    right: 25px;
+    bottom: 50px;
+  }
 }
 </style>

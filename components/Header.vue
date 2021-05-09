@@ -1,12 +1,11 @@
 <template>
   <header>
-    <img :src="require('@/assets/logo.png')" alt="logo" class="logo">
+    <img @click="scrollToItem('main')" :src="require('@/assets/logo.png')" alt="logo" class="logo">
     <div class="navs">
-      <a href="#">香巴梳坊</a>
-      <a href="#">選用牛角</a>
-      <a href="#">哪裡不一樣</a>
-      <a href="#">熱銷商品</a>
-      <a href="#">使用方式</a>
+      <a @click="scrollToItem('why')">選用牛角</a>
+      <a @click="scrollToItem('different')">哪裡不一樣</a>
+      <a @click="scrollToItem('products')">熱銷商品</a>
+      <a @click="scrollToItem('instruction')">使用方式</a>
       <a href="https://shopee.tw/tzumon2020" class="button-link" target="_blank">
         前往賣場
         <img :src="require('@/assets/white-arrow-right.png')" alt="arrow">
@@ -16,11 +15,10 @@
     <img v-else :src="require('@/assets/menu-cancel.png')" @click="toggleShowMobileLin" alt="menu-cancel" class="menu-icon">
     <div class="mobile-navs" :class="{ 'hide-link': !showMobileLink }">
       <div class="white-border-wrap">
-        <a href="#">香巴梳坊</a>
-        <a href="#">選用牛角</a>
-        <a href="#">哪裡不一樣</a>
-        <a href="#">熱銷商品</a>
-        <a href="#">使用方式</a>
+        <a @click="scrollToItem('why')">選用牛角</a>
+        <a @click="scrollToItem('different')">哪裡不一樣</a>
+        <a @click="scrollToItem('products')">熱銷商品</a>
+        <a @click="scrollToItem('instruction')">使用方式</a>
         <a href="https://shopee.tw/tzumon2020" target="_blank">前往賣場</a>
       </div>
     </div>
@@ -36,6 +34,10 @@ export default {
   methods: {
     toggleShowMobileLin() {
       this.showMobileLink = !this.showMobileLink
+    },
+    scrollToItem(item) {
+      this.showMobileLink = false
+      this.$emit('scrollToItem', item)
     }
   }
 }
@@ -53,6 +55,7 @@ export default {
     .logo {
       height: 30px;
       width: auto;
+      cursor: pointer;
     }
   }
   .navs {
@@ -62,6 +65,7 @@ export default {
       color: #320f0b;
       text-decoration: none;
       margin-right: 25px;
+      cursor: pointer;
     }
     a.button-link {
       padding: 6px 16px;
