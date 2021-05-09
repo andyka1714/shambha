@@ -81,15 +81,18 @@
       </a>
     </div>
     <div class="white-block"></div>
+    <Footer class="bg-pink"></Footer>
   </div>
 </template>
 
 <script>
 import Header from '~/components/Header.vue'
+import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
-    Header
+    Header,
+    Footer
   },
   data() {
     return {
@@ -555,29 +558,12 @@ export default {
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
-        .title {
-          font-size: 50px;
-          font-weight: bold;
-          letter-spacing: 1.41px;
-          color: #320f0b;
-          margin-bottom: 10px;
-        }
-        .content, .attention {
+        .content {
           font-size: 26px;
           line-height: 1.54;
           letter-spacing: 1.43px;
           color: #320f0b;
           white-space: pre-wrap;
-        }
-        .attention {
-          font-weight: 500;
-        }
-        .link {
-          font-size: 26px;
-          font-weight: 500;
-          letter-spacing: 1.43px;
-          color: #ae061b;
-          margin-top: 25px;
         }
       }
     }
@@ -646,9 +632,9 @@ export default {
   }
   @media screen and (max-width: 768px){
     .instruction-wrap {
-      padding: 50px;
+      padding: 25px;
       .instruction-title-warp {
-        padding: 20px;
+        padding: 12px;
         width: 250px;
         img {
           height: 50px;
@@ -668,7 +654,8 @@ export default {
           padding: 0;
           height: auto;
           .content {
-            padding: 60px 25px 25px 25px;
+            letter-spacing: 0.88px;
+            padding: 62px 25px 25px 25px;
             font-size: 16px;
           }
         }
@@ -714,7 +701,7 @@ export default {
     }
   }
   @media screen and (max-width: 992px){
-    padding: 60px 120px;
+    padding: 50px;
     img {
       height: 60px;
     }

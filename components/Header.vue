@@ -7,7 +7,7 @@
       <a href="#">哪裡不一樣</a>
       <a href="#">熱銷商品</a>
       <a href="#">使用方式</a>
-      <a href="https://shopee.tw/tzumon2020" class="button-link">
+      <a href="https://shopee.tw/tzumon2020" class="button-link" target="_blank">
         前往賣場
         <img :src="require('@/assets/white-arrow-right.png')" alt="arrow">
       </a>
@@ -21,7 +21,7 @@
         <a href="#">哪裡不一樣</a>
         <a href="#">熱銷商品</a>
         <a href="#">使用方式</a>
-        <a href="https://shopee.tw/tzumon2020">前往賣場</a>
+        <a href="https://shopee.tw/tzumon2020" target="_blank">前往賣場</a>
       </div>
     </div>
   </header>
