@@ -14,7 +14,7 @@
           </a>
         </li>
         <li class="icon">
-          <a href="" target="_blank">
+          <a href="https://lin.ee/8CJBMMi" target="_blank">
             <img :src="require('@/assets/social-icon3.png')" alt="social-icon">
           </a>
         </li>
