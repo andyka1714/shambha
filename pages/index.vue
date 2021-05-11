@@ -95,6 +95,22 @@ export default {
     Header,
     Footer
   },
+  head() {
+    return {
+      title: `香巴梳坊 shambha 天然牛角按摩髮梳`,
+      meta: [
+        { property: 'og:title', content: `香巴梳坊 shambha 天然牛角按摩髮梳` },
+        { property: 'og:description', content: `每個人都該擁有一把只屬於你，獨一無二的梳子。
+在深坑老街有一間小小的牛角梳店，裡面充滿了許多讓生活明亮而美好的神奇小寶物，來吧！歡迎來到香巴梳坊！` },
+        { property: 'twitter:title', content: `香巴梳坊 shambha 天然牛角按摩髮梳` },
+        { property: 'twitter:description', content: `每個人都該擁有一把只屬於你，獨一無二的梳子。
+在深坑老街有一間小小的牛角梳店，裡面充滿了許多讓生活明亮而美好的神奇小寶物，來吧！歡迎來到香巴梳坊！` },
+        { hid: 'description', name: 'description', content: `每個人都該擁有一把只屬於你，獨一無二的梳子。
+在深坑老街有一間小小的牛角梳店，裡面充滿了許多讓生活明亮而美好的神奇小寶物，來吧！歡迎來到香巴梳坊！` },
+        { hid: 'keywords', name: 'keywords', content: `天然牛角髮梳,舒緩刮痧板,細緻眼周按摩棒,多功能魚型刮痧板,穴道按摩錐,白牛角印鑑章,香巴梳坊,shambha` },
+      ]
+    }
+  },
   data() {
     return {
       scrollTop: 0,
